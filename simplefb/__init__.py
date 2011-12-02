@@ -11,9 +11,9 @@
 #     http://nikcub.appspot.com/bsd-license
 #
 """
-  facebook.py
+  simplefb
 
-  facebook graph client
+  a simple facebook graph client
 
   This source file is subject to the new BSD license that is bundled with this 
   package in the file LICENSE.txt. The license is also available online at the 
@@ -76,14 +76,16 @@ class FBGraph(object):
     raise 'could not get access token (no resp)'
 
   def create_user(self, name=None):
+    name =  gen_name()
     get_params = {
       'installed': True,
-      'name': gen_name(),
+      'name': name,
       'permissions': 'read_stream',
       'method': 'post',
       'access_token': self.accesstoken
     }
     newuser = self.request('/accounts/test-users', get_params, None, self.appid)
+    newuser['name'] = name
     return newuser
 
   def list_users(self):
