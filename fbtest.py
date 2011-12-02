@@ -27,7 +27,7 @@ __version__ = '0.0.1'
 __author__ = 'Nik Cubrilovic <nikcub@gmail.com>'
 
 import logging
-from facebook import FBGraph, json_parse, json_dump
+from simplefb import FBGraph, json_parse, json_dump
 from conf import disconnect_app
 
 def main(appdat):
