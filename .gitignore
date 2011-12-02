@@ -1,1 +1,4 @@
 *.pyc
+conf.py
+users.json
+*.json
